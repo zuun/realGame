@@ -1,0 +1,66 @@
+﻿@model realGame.Models.GameSteep
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+   @Html.HiddenFor( model => model.GameID)
+    <h4>GameSteep</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SteepNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SteepNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextPoint)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to game", "Details", "Games", new { id = Model.GameID }, null)
+        </div>
+    }
+</div>

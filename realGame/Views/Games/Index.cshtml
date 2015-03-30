@@ -1,0 +1,70 @@
+﻿@model IEnumerable<realGame.Models.Game>
+
+@{
+    ViewBag.Title = "Games";
+}
+
+<br />
+
+
+
+<div class="row">
+   <div class="col-lg-8">
+      <strong>ToDO:</strong> filter existent games
+   </div>
+</div>
+
+<br />
+
+<div class="row">
+   <div class="col-lg-8">
+      @{
+         if (Model == null || Model.Count() == 0)
+         { 
+            <h3>No game available at this time</h3>
+         }
+      }
+   </div>
+   <div class="col-lg-4 text-right" style="vertical-align:bottom;">
+      @Html.ActionLink("Create New", "Create")
+   </div>
+</div>
+
+<br />
+
+@{
+   if (Model != null && Model.Count() > 0)
+   {
+      <table class="table-condensed table-striped table-hover" style="width:100%;">
+         <tr>
+            <th>
+               @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+         </tr>
+
+         @foreach (var item in Model)
+         {
+            <tr>
+               <td>
+                  @Html.DisplayFor(modelItem => item.Name)
+               </td>
+               <td>
+                  @Html.DisplayFor(modelItem => item.Description)
+               </td>
+               <td class="text-right">
+                  @Html.ActionLink("Edit Info", "Edit", new { id = item.ID }) |
+                  @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                  @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+               </td>
+            </tr>
+         }
+
+      </table>
+   }
+}
+
+<br />

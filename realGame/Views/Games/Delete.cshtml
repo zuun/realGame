@@ -1,0 +1,42 @@
+﻿@model realGame.Models.Game
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this game?</h3>
+<div>
+   <hr />
+   <div class="row">
+      <div class="col-lg-2">
+         <strong>@Html.DisplayNameFor(model => model.Name)</strong>
+      </div>
+      <div class="col-lg-10">
+         @Html.DisplayFor(model => model.Name)
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-lg-2">
+         <strong>@Html.DisplayNameFor(model => model.Description)</strong>
+      </div>
+      <div class="col-lg-10">
+         @Html.DisplayFor(model => model.Description)
+      </div>
+   </div>
+   <div class="row">
+      Number of steeps in the game:
+   </div>
+   
+   <br />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

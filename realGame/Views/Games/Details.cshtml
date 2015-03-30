@@ -1,0 +1,44 @@
+﻿@model realGame.Models.Game
+@using realGame.Code
+
+@{
+    ViewBag.Title = "Game Details";
+
+    var gameSteeps = General.CreateGameSteepsList();
+    if (ViewBag.GameSteeps != null)
+    {
+       gameSteeps = ViewBag.GameSteeps;
+    }
+    
+}
+
+<h2>Game Details</h2>
+
+<div>
+   <hr />
+
+   <div class="row">
+      <div class="col-lg-2 text-right"><strong>@Html.DisplayNameFor(model => model.Name)</strong></div>
+      <div class="col-lg-9">@Html.DisplayFor(model => model.Name)</div>
+   </div>
+   <div class="row">
+      <div class="col-lg-2 text-right"><strong>@Html.DisplayNameFor(model => model.Description)</strong></div>
+      <div class="col-lg-9">@Html.DisplayFor(model => model.Description)</div>
+   </div>
+   <div class="row">
+      <div class="col-lg-2">@Html.ActionLink("Back to List", "Index")</div>
+      <div class="col-lg-9 text-right">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</div>
+   </div>
+</div>
+
+<br />
+
+<hr />
+
+<br />
+
+
+@{Html.RenderAction("_Index", "GameSteeps", new { gameID = Model.ID } );} 
+
+
+<br />

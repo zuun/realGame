@@ -1,0 +1,61 @@
+﻿@model realGame.Models.GameSteep
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GameSteep</h4>
+    <hr />
+    @Html.HiddenFor(model => model.GameID)
+    @Html.HiddenFor(model => model.SteepID)
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SteepNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SteepNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextPoint)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID, gameID = Model.GameID }) |
+    @Html.ActionLink("Back to game", "Details", "Games", new { id = Model.ID }, null)
+</p>

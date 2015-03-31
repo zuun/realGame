@@ -5,6 +5,21 @@
 <br />
 
 
+
+<script>
+   
+   function foundLocation(position) {
+      var lat = position.coords.latitude;
+      var long = position.coords.longitude;
+      $('#spanLat').text(lat);
+      $('#spanLong').text(long);
+      //alert('Found location: ' + lat + ', ' + long); //Do something
+   }
+   function noLocation() {
+      alert('Could not find location');
+   }
+</script>
+
 <div class="row">
    <div class="col-lg-8">
       What now ??? Browse games?
@@ -14,5 +29,17 @@
    </div>
 </div>
 
+<div class="row">
+   <div class="col-md-4">
+      <h2>Location</h2>
+      <p>
+         This will provide the client location <br/>
+         Lat: <span id="spanLat">N/A</span> <br />
+         Long: <span id="spanLong">N/A</span> <br />
+      </p>
+      <p><a class="btn btn-default" onclick="navigator.geolocation.getCurrentPosition(foundLocation, noLocation);">Locate &raquo;</a></p>
+   </div>
+</div>
 
-<br />
+
+   <br />

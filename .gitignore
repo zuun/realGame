@@ -45,3 +45,8 @@ Temporary Items
 .svn/wc.db
 *.svn-base
 .svn/format
+realGame/bin
+realGame/obj
+realGame.Tests/bin
+realGame.Tests/obj
+packages/*.*

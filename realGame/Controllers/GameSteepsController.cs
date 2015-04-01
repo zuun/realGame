@@ -100,6 +100,7 @@ namespace realGame.Controllers
       // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
       [HttpPost]
       [ValidateAntiForgeryToken]
+      [ValidateInput(false)]
       public ActionResult Edit([Bind(Include = "ID,GameID,SteepNo,Description,Answer,Question,NextPoint,SteepID")] GameSteep gameSteep)
       {
          if (ModelState.IsValid)
